@@ -19,6 +19,7 @@ namespace ZH3_ANN698
         {
             InitializeComponent();
             GetData();
+            
 
         }
 
@@ -37,7 +38,7 @@ namespace ZH3_ANN698
         }
 
     }
-    public  class db1
+    public class db1
     {
         public string Name { get; set; }
         public string Region { get; set; }

@@ -35,6 +35,7 @@ namespace ZH3_ANN698
             panel1.Controls.Clear();
             UserControl1 us1 = new();
             panel1.Controls.Add(us1);
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
