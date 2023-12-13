@@ -37,7 +37,11 @@
             comboBox1 = new ComboBox();
             telephoneBookBindingSource = new BindingSource(components);
             label1 = new Label();
+            comboBox2 = new ComboBox();
+            telephoneBookBindingSource1 = new BindingSource(components);
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)telephoneBookBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)telephoneBookBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -113,12 +117,39 @@
             label1.TabIndex = 3;
             label1.Text = "Quanity of Peoples On this Postal Code";
             // 
+            // comboBox2
+            // 
+            comboBox2.DataSource = telephoneBookBindingSource1;
+            comboBox2.DisplayMember = "Region";
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(12, 128);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(75, 23);
+            comboBox2.TabIndex = 2;
+            comboBox2.ValueMember = "Region";
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            // 
+            // telephoneBookBindingSource1
+            // 
+            telephoneBookBindingSource1.DataSource = typeof(Models.TelephoneBook);
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 165);
+            label2.Name = "label2";
+            label2.Size = new Size(48, 15);
+            label2.TabIndex = 4;
+            label2.Text = "No/ppl:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(comboBox2);
             Controls.Add(comboBox1);
             Controls.Add(panel1);
             Controls.Add(button4);
@@ -129,6 +160,7 @@
             Text = "Form1";
             FormClosing += Form1_FormClosing;
             ((System.ComponentModel.ISupportInitialize)telephoneBookBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)telephoneBookBindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -143,5 +175,8 @@
         private ComboBox comboBox1;
         private Label label1;
         private BindingSource telephoneBookBindingSource;
+        private ComboBox comboBox2;
+        private BindingSource telephoneBookBindingSource1;
+        private Label label2;
     }
 }

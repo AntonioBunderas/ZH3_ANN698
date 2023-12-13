@@ -9,8 +9,26 @@ namespace ZH3_ANN698
         public Form1()
         {
             InitializeComponent();
-            telephoneBookBindingSource.DataSource = context.PostalCodes.ToList();
+            Combobox2();
             PostalCodeSum();
+            Summerise();
+        }
+
+        private void Summerise()
+        {
+            var get_sum2 = (from x in context.TelephoneBooks
+                            where x.Region == comboBox2.SelectedItem
+                            select x).Count();
+            label2.Text ="No/Ppl: " + get_sum2.ToString();
+        }
+
+        private void Combobox2()
+        {
+            telephoneBookBindingSource.DataSource = context.PostalCodes.ToList();
+            telephoneBookBindingSource1.DataSource = context.TelephoneBooks.ToList();
+            var regions = (from x in context.TelephoneBooks
+                           select x.Region).Distinct();
+            comboBox2.DataSource = regions.ToList();
         }
 
         private void PostalCodeSum()
@@ -35,7 +53,7 @@ namespace ZH3_ANN698
             panel1.Controls.Clear();
             UserControl1 us1 = new();
             panel1.Controls.Add(us1);
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -60,6 +78,11 @@ namespace ZH3_ANN698
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             PostalCodeSum();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Summerise();
         }
     }
 }
